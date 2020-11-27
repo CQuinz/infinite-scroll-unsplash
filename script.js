@@ -16,7 +16,9 @@ const displayPhotos = ()=>{
     img.setAttribute('src', photo.urls.regular);
     img.setAttribute('alt', photo.alt_description);
     img.setAttribute('title', photo.alt_description);
-   
+    //Put img inside of a tag, then put a tag inside of img container
+    item.appendChild(img);
+    imageContainer.appendChild(item);
 
   });
 }
