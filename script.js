@@ -15,7 +15,7 @@ const unsplashUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}
 const imageLoaded = ()=>{
   console.log('img loaded');
   imagesLoaded++;
-  if (imageLoaded ===totalImages){
+  if (imagesLoaded ===totalImages){
     ready= true;
     console.log('ready = ', ready);
   }
@@ -44,14 +44,15 @@ const displayPhotos = ()=>{
 
     // Create img tag for photo
     const img = document.createElement("img");
-    //Add an eventListener to check if an image has loaded
-    img.addEventListener('load', imageLoaded);
-
+    
     setAttributes(img, {
       src: photo.urls.regular,
       alt: photo.alt_description,
       title: photo.alt_description,
     });
+
+    //Add an eventListener to check if an image has loaded
+    img.addEventListener('load', imageLoaded);
 
     //Put img inside of a tag, then put a tag inside of img container
     item.appendChild(img);
